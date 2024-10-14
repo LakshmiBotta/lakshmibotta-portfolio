@@ -1,0 +1,223 @@
+<!--To update your certificates just update them in the html section of this code
+in the div tags in the line 190s-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Certificates</title>
+
+    <!-- Font-face declaration -->
+    <style>
+      @font-face {
+        font-family: "HechoAMano";
+        src: url("fonts/HechoAMano-Regular.ttf") format("truetype");
+        font-weight: normal;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: "Cathalia";
+        src: url("fonts/Cathalia.otf") format("truetype");
+        font-weight: normal;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: "Letters for Learners";
+        src: url("fonts/Letters for Learners.ttf") format("truetype");
+        font-weight: normal;
+        font-style: normal;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: #e0f7fa;
+        background-image: url("hill1.png"), url("hill2.png"), url("hill3.png"),
+          url("hill4.png"), url("hill5.png");
+        background-position: left bottom, center bottom, right bottom, left top,
+          right top;
+        background-size: 100% auto, 100% auto, 100% auto, 100% auto, 100% auto;
+        background-repeat: no-repeat;
+        background-attachment: fixed; /* Keep hills in position when scrolling */
+        padding: 20px;
+        margin: 0;
+      }
+
+      h2 {
+        text-align: center;
+        color: #333;
+        font-size: 3rem;
+        margin-bottom: 10px;
+        font-family: "Cathalia", cursive; /* Apply custom font to the main title */
+      }
+
+      .description {
+        text-align: center;
+        color: #666;
+        font-size: 2rem;
+        margin-bottom: 40px;
+        font-family: "HechoAMano", cursive; /* Apply custom font to the description */
+      }
+
+      .certificate-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 20px 0;
+        text-align: center;
+        color: #666;
+        font-size: 2rem;
+        margin-bottom: 40px;
+        font-family: "Letters for Learners", cursive;
+      }
+
+      .certificate-item {
+        position: relative;
+        margin: 20px;
+        cursor: pointer;
+        width: 300px;
+        height: 180px;
+        text-align: center;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #fff;
+        padding: 20px;
+      }
+
+      .certificate-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      }
+
+      .certificate-item span {
+        color: #333;
+        font-weight: 600;
+        font-size: 1.4rem;
+      }
+
+      .certificate-item img {
+        display: block;
+        opacity: 0;
+        width: 100%;
+        height: auto;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 8px;
+        z-index: 2;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+      }
+
+      .certificate-item:hover img {
+        opacity: 1;
+        z-index: 10; /* Make sure it appears above everything else */
+        transform: translate(-50%, -50%) scale(1.1); /* Slight scaling for emphasis */
+      }
+
+      .overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        z-index: 999;
+      }
+
+      .enlarged-view {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: none;
+        max-width: 90%;
+        max-height: 90%;
+        z-index: 1000;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        border-radius: 8px;
+        background-color: white;
+      }
+
+      @media (max-width: 768px) {
+        .certificate-item {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h2>My Certificates</h2>
+    <p class="description">
+      <b
+        >Showcasing my certifications in data science, cloud computing,
+        cybersecurity, and full-stack development.</b
+      >
+    </p>
+
+    <div class="certificate-container">
+      <div class="certificate-item" data-image="gc1.png">
+        <span>Google Cloud Career Readiness - Data Analyst Track</span>
+        <img src="gc1.png" alt="Certificate 1" />
+      </div>
+      <div class="certificate-item" data-image="gc2.png">
+        <span>Google Cloud Career Launchpad - Cloud Engineer Track</span>
+        <img src="gc2.png" alt="Certificate 2" />
+      </div>
+      <div class="certificate-item" data-image="nptel_dse1.png">
+        <span>NPTEL - Data Science for Engineers (Elite)</span>
+        <img src="nptel_dse1.png" alt="Certificate 3" />
+      </div>
+      <div class="certificate-item" data-image="nptel_fcim2.png">
+        <span>NPTEL - Foundation of Cloud IoT Edge ML (Elite)</span>
+        <img src="nptel_fcim2.png" alt="Certificate 4" />
+      </div>
+      <div class="certificate-item" data-image="eduskills_cybersecurity.png">
+        <span
+          >AICTE Eduskills - Palo Alto Cybersecurity Virtual Internship</span
+        >
+        <img src="eduskills_cybersecurity.png" alt="Certificate 5" />
+      </div>
+      <div class="certificate-item" data-image="mern_srkr.png">
+        <span>MERN Stack Development</span>
+        <img src="mern_srkr.png" alt="Certificate 6" />
+      </div>
+      <div class="certificate-item" data-image="Blackbucks ChatGPT-1.png">
+        <span>APSCHE IIDT Blacbucks ChatGPT/ Generative AI</span>
+        <img src="Blackbucks ChatGPT-1.png" alt="Certificate 6" />
+      </div>
+    </div>
+
+    <div class="overlay"></div>
+    <img class="enlarged-view" src="" alt="Enlarged certificate" />
+
+    <script>
+      document.querySelectorAll(".certificate-item").forEach((item) => {
+        const img = item.querySelector("img");
+
+        // Display enlarged image
+        item.addEventListener("click", () => {
+          const enlargedView = document.querySelector(".enlarged-view");
+          const overlay = document.querySelector(".overlay");
+
+          enlargedView.src = img.src;
+          enlargedView.style.display = "block";
+          overlay.style.display = "block";
+        });
+      });
+
+      // Hide enlarged view and overlay on click
+      document.querySelector(".overlay").addEventListener("click", () => {
+        document.querySelector(".enlarged-view").style.display = "none";
+        document.querySelector(".overlay").style.display = "none";
+      });
+    </script>
+  </body>
+</html>
